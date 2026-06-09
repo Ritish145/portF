@@ -1,98 +1,74 @@
 // ── Year ───────────────────────────────────────────────
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// ── Terminal typewriter ────────────────────────────────
-const lines = [
-  { text: '$ whoami', class: 't-green', delay: 0 },
-  { text: 'ritish — SRE / DevOps Engineer', class: 't-blue', delay: 600 },
-  { text: '$ kubectl get pods --all-namespaces', class: 't-green', delay: 1200 },
-  { text: 'All pods Running ✔', class: 't-orange', delay: 1900 },
-  { text: '$ terraform apply --auto-approve', class: 't-green', delay: 2700 },
-  { text: 'Apply complete! Resources: 12 added.', class: 't-muted', delay: 3500 },
-  { text: '$ check uptime', class: 't-green', delay: 4300 },
-  { text: 'uptime: 99.9% — incidents: 0', class: 't-yellow', delay: 5100 },
-  { text: '$ _', class: 't-blue', delay: 5900 },
-];
-
-const body = document.getElementById('terminalBody');
-
-lines.forEach(({ text, class: cls, delay }) => {
-  setTimeout(() => {
-    const line = document.createElement('div');
-    if (text === '$ _') {
-      line.innerHTML = '<span class="t-green">$ </span><span class="t-cursor"></span>';
-    } else {
-      line.className = cls;
-      line.textContent = text;
-      line.style.opacity = '0';
-      line.style.transition = 'opacity 0.3s';
-      body.appendChild(line);
-      requestAnimationFrame(() => { line.style.opacity = '1'; });
-      return;
-    }
-    body.appendChild(line);
-  }, delay);
-});
-
-// ── Nav scroll effect ──────────────────────────────────
+// ── Nav scroll state ───────────────────────────────────
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
-  nav.style.borderBottomColor = window.scrollY > 30
-    ? 'rgba(255,255,255,0.1)'
-    : 'rgba(255,255,255,0.04)';
+  nav.classList.toggle('scrolled', window.scrollY > 20);
 });
 
-// ── Active nav link highlight ──────────────────────────
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav__links a');
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      navLinks.forEach(a => a.style.color = '');
-      const active = document.querySelector(`.nav__links a[href="#${entry.target.id}"]`);
-      if (active) active.style.color = '#4f9cf9';
-    }
-  });
-}, { threshold: 0.4 });
-
-sections.forEach(s => observer.observe(s));
-
-// ── Fade-in on scroll ──────────────────────────────────
-const fadeEls = document.querySelectorAll('.project-card, .stat-card, .skill-group, .contact__link');
-
-const fadeObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-      fadeObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1 });
-
-fadeEls.forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-  fadeObserver.observe(el);
-});
-
-// ── Mobile nav toggle ──────────────────────────────────
+// ── Mobile menu ────────────────────────────────────────
 const toggle = document.getElementById('navToggle');
-const navLinks2 = document.querySelector('.nav__links');
-let menuOpen = false;
+const links = document.querySelector('.nav__links');
+toggle.addEventListener('click', () => links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a =>
+  a.addEventListener('click', () => links.classList.remove('open'))
+);
 
-toggle.addEventListener('click', () => {
-  menuOpen = !menuOpen;
-  navLinks2.style.display = menuOpen ? 'flex' : '';
-  navLinks2.style.flexDirection = 'column';
-  navLinks2.style.position = 'absolute';
-  navLinks2.style.top = '60px';
-  navLinks2.style.left = '0';
-  navLinks2.style.right = '0';
-  navLinks2.style.background = 'rgba(10,12,16,0.97)';
-  navLinks2.style.padding = '1rem 2rem';
-  navLinks2.style.borderBottom = '1px solid rgba(255,255,255,0.08)';
-  if (!menuOpen) navLinks2.removeAttribute('style');
-});
+// ── Active link highlight ──────────────────────────────
+const sections = document.querySelectorAll('section[id], header[id]');
+const navLinks = document.querySelectorAll('.nav__links a');
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(a => a.classList.remove('active'));
+      const active = document.querySelector(`.nav__links a[href="#${e.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.5 });
+sections.forEach(s => navObserver.observe(s));
+
+// ── Reveal on scroll ───────────────────────────────────
+const revealEls = document.querySelectorAll(
+  '.about__text, .highlight, .skill-card, .exp, .project, .edu, .section__head'
+);
+revealEls.forEach(el => el.classList.add('reveal'));
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), (i % 3) * 80);
+      revealObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+revealEls.forEach(el => revealObserver.observe(el));
+
+// ── Animated metric counters ───────────────────────────
+function animateCounter(el) {
+  const target = parseFloat(el.dataset.target);
+  const decimals = parseInt(el.dataset.decimals || '0', 10);
+  const suffix = el.dataset.suffix || '';
+  const duration = 1400;
+  const start = performance.now();
+
+  function tick(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+    const value = target * eased;
+    el.textContent = value.toFixed(decimals) + suffix;
+    if (progress < 1) requestAnimationFrame(tick);
+    else el.textContent = target.toFixed(decimals) + suffix;
+  }
+  requestAnimationFrame(tick);
+}
+
+const metricObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      animateCounter(e.target);
+      metricObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.metric__value').forEach(el => metricObserver.observe(el));
