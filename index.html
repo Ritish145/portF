@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ritish Reddy Madireddy — SRE & DevOps Engineer</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__logo">RR<span class="dot">.</span></div>
+    <ul class="nav__links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero__bg-grid"></div>
+    <div class="hero__content">
+      <span class="hero__tag">Site Reliability &amp; DevOps Engineer</span>
+      <h1 class="hero__name">Ritish<br><span class="hero__name--accent">Reddy</span></h1>
+      <p class="hero__sub">4+ years building and operating production-grade AWS platforms —<br>automating delivery, designing for reliability, keeping uptime at 99.9%.</p>
+      <div class="hero__actions">
+        <a href="#experience" class="btn btn--primary">View Experience</a>
+        <a href="#contact" class="btn btn--ghost">Get in Touch</a>
+      </div>
+      <div class="hero__chips">
+        <span class="chip">AWS</span>
+        <span class="chip">Kubernetes</span>
+        <span class="chip">Terraform</span>
+        <span class="chip">Ansible</span>
+        <span class="chip">Python</span>
+      </div>
+    </div>
+    <div class="hero__terminal">
+      <div class="terminal">
+        <div class="terminal__bar">
+          <span class="terminal__dot red"></span>
+          <span class="terminal__dot yellow"></span>
+          <span class="terminal__dot green"></span>
+          <span class="terminal__title">ritish@aws:~</span>
+        </div>
+        <div class="terminal__body" id="terminalBody"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section__title">About</h2>
+      <div class="about__grid">
+        <div class="about__text">
+          <p>I'm Ritish — an automation-focused Site Reliability and DevOps engineer with 4+ years building and operating AWS-based, production-grade platforms.</p>
+          <p>My work centers on system design for reliability, CI/CD-driven delivery, observability, and incident response. I turn manual, error-prone processes into pipeline-driven releases that cut cycle time and raise uptime.</p>
+          <p>I work across Python, Terraform, Ansible, and Kubernetes (EKS), with a strong focus on rapid prototyping, cost optimization, and resilient infrastructure.</p>
+        </div>
+        <div class="about__stats">
+          <div class="stat-card">
+            <span class="stat-card__num">4+ yrs</span>
+            <span class="stat-card__label">SRE / DevOps experience</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__num">~99.9%</span>
+            <span class="stat-card__label">Production uptime</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__num">~80%</span>
+            <span class="stat-card__label">Faster releases via CI/CD</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__num">~35%</span>
+            <span class="stat-card__label">Lower incident response time</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section section--alt" id="skills">
+    <div class="container">
+      <h2 class="section__title">Skills</h2>
+      <div class="skills__grid">
+
+        <div class="skill-group">
+          <h3 class="skill-group__title">☁️ Cloud</h3>
+          <div class="skill-tags">
+            <span class="skill-tag skill-tag--aws">AWS EC2</span>
+            <span class="skill-tag skill-tag--aws">S3</span>
+            <span class="skill-tag skill-tag--aws">IAM</span>
+            <span class="skill-tag skill-tag--aws">CloudWatch</span>
+            <span class="skill-tag skill-tag--aws">Azure VMs</span>
+            <span class="skill-tag skill-tag--aws">Azure RBAC</span>
+            <span class="skill-tag skill-tag--aws">Azure Monitor</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="skill-group__title">⚙️ IaC, Containers &amp; CI/CD</h3>
+          <div class="skill-tags">
+            <span class="skill-tag skill-tag--devops">Terraform</span>
+            <span class="skill-tag skill-tag--devops">Ansible</span>
+            <span class="skill-tag skill-tag--devops">Docker</span>
+            <span class="skill-tag skill-tag--devops">Kubernetes (EKS)</span>
+            <span class="skill-tag skill-tag--devops">Helm</span>
+            <span class="skill-tag skill-tag--devops">Jenkins</span>
+            <span class="skill-tag skill-tag--devops">GitHub Actions</span>
+            <span class="skill-tag skill-tag--devops">GitLab CI/CD</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="skill-group__title">🖥️ Languages &amp; Systems</h3>
+          <div class="skill-tags">
+            <span class="skill-tag skill-tag--sys">Python</span>
+            <span class="skill-tag skill-tag--sys">Bash</span>
+            <span class="skill-tag skill-tag--sys">Go</span>
+            <span class="skill-tag skill-tag--sys">SQL</span>
+            <span class="skill-tag skill-tag--sys">Linux (Ubuntu/CentOS)</span>
+            <span class="skill-tag skill-tag--sys">Windows Server</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="skill-group__title">📊 Observability &amp; Networking</h3>
+          <div class="skill-tags">
+            <span class="skill-tag skill-tag--mon">Prometheus</span>
+            <span class="skill-tag skill-tag--mon">Grafana</span>
+            <span class="skill-tag skill-tag--mon">ELK</span>
+            <span class="skill-tag skill-tag--mon">CloudWatch</span>
+            <span class="skill-tag skill-tag--mon">DNS / TCP-IP</span>
+            <span class="skill-tag skill-tag--mon">Load Balancers</span>
+            <span class="skill-tag skill-tag--mon">REST APIs</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section" id="experience">
+    <div class="container">
+      <h2 class="section__title">Experience</h2>
+      <div class="timeline">
+
+        <div class="timeline__item">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <div class="timeline__head">
+              <h3 class="timeline__role">Site Reliability Engineer</h3>
+              <span class="timeline__date">Jan 2024 — Dec 2025</span>
+            </div>
+            <span class="timeline__company">Pilot Flying J</span>
+            <ul class="timeline__points">
+              <li>Standardized AWS infrastructure automation with Terraform modules and Ansible, supporting ~99.9% uptime across environments.</li>
+              <li>Converted manual deployments into pipeline-driven releases, reducing release time by ~80%.</li>
+              <li>Designed zero-downtime blue-green / canary deployments on Kubernetes with controlled rollback paths.</li>
+              <li>Built observability with Prometheus, Grafana, ELK and CloudWatch — cutting incident response time by ~35%.</li>
+              <li>Led 24×7 production support, RCA and preventive fixes; optimized AWS costs by ~20% via rightsizing and Spot/RIs.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <div class="timeline__head">
+              <h3 class="timeline__role">Junior Site Reliability Engineer</h3>
+              <span class="timeline__date">Jun 2022 — May 2023</span>
+            </div>
+            <span class="timeline__company">Capgemini</span>
+            <ul class="timeline__points">
+              <li>Supported AWS + Kubernetes platforms across dev/stage/prod, improving deployment reliability through IaC.</li>
+              <li>Automated operational workflows with Python/Bash, reducing toil by ~30%.</li>
+              <li>Troubleshot Kubernetes rollouts and pod failures across 10+ applications, raising deploy success rate.</li>
+              <li>Contributed to CI/CD improvements with Jenkins and GitLab CI, tightening feedback loops.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <div class="timeline__head">
+              <h3 class="timeline__role">DevOps Engineer</h3>
+              <span class="timeline__date">Jul 2020 — May 2022</span>
+            </div>
+            <span class="timeline__company">Sandridge</span>
+            <ul class="timeline__points">
+              <li>Maintained 30+ Linux/Windows servers with monthly patching, reducing critical vulnerabilities by ~40%.</li>
+              <li>Automated provisioning across 20+ servers, cutting manual steps by ~60% and deployment errors by ~25%.</li>
+              <li>Diagnosed and resolved OS/infrastructure issues with documented fixes to shorten recovery.</li>
+              <li>Improved visibility with ELK/Grafana dashboards and supported after-hours incident coverage.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section section--alt" id="projects">
+    <div class="container">
+      <h2 class="section__title">Projects</h2>
+      <div class="projects__grid">
+
+        <div class="project-card">
+          <div class="project-card__header">
+            <span class="project-card__icon">📈</span>
+            <span class="project-card__tag">Observability</span>
+          </div>
+          <h3 class="project-card__title">Kubernetes Observability Stack</h3>
+          <p class="project-card__desc">Deployed a Prometheus + Grafana + ELK monitoring stack via Helm. Created SLO-style dashboards (latency, uptime, error budgets) and alerting that reduced MTTR by ~40%.</p>
+          <div class="project-card__stack">
+            <span>Prometheus</span><span>Grafana</span><span>ELK</span><span>Helm</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card__header">
+            <span class="project-card__icon">🔥</span>
+            <span class="project-card__tag">Resilience</span>
+          </div>
+          <h3 class="project-card__title">Chaos Engineering Incident Simulator</h3>
+          <p class="project-card__desc">Built Python-driven resilience drills injecting pod crashes, network latency and disk errors. Auto-generated runbooks and postmortem artifacts to standardize incident learning.</p>
+          <div class="project-card__stack">
+            <span>Python</span><span>Kubernetes</span><span>Chaos Eng</span>
+          </div>
+        </div>
+
+        <div class="project-card project-card--add">
+          <span class="project-card__plus">+</span>
+          <p>More projects coming soon</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="section" id="education">
+    <div class="container">
+      <h2 class="section__title">Education</h2>
+      <div class="edu__grid">
+        <div class="edu-card">
+          <h3 class="edu-card__degree">M.S., Information Systems</h3>
+          <span class="edu-card__school">Saint Louis University</span>
+          <div class="edu-card__meta">
+            <span>Aug 2023 — May 2025</span>
+            <span class="edu-card__gpa">GPA 3.75 / 4.0</span>
+          </div>
+        </div>
+        <div class="edu-card">
+          <h3 class="edu-card__degree">B.Tech., Computer Science</h3>
+          <span class="edu-card__school">KL University</span>
+          <div class="edu-card__meta">
+            <span>Jun 2019 — May 2023</span>
+            <span class="edu-card__gpa">GPA 8.9 / 10</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section--alt" id="contact">
+    <div class="container">
+      <h2 class="section__title">Contact</h2>
+      <div class="contact__wrap">
+        <p class="contact__sub">Open to SRE / DevOps and cloud engineering roles. Let's talk about building reliable systems.</p>
+        <div class="contact__links">
+          <a href="mailto:ritishreddy7@gmail.com" class="contact__link">
+            <span class="contact__link-icon">✉</span>
+            ritishreddy7@gmail.com
+          </a>
+          <a href="tel:+18564122806" class="contact__link">
+            <span class="contact__link-icon">☎</span>
+            +1 (856) 412-2806
+          </a>
+          <a href="https://github.com/" target="_blank" class="contact__link">
+            <span class="contact__link-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.165c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </span>
+            GitHub
+          </a>
+          <a href="https://linkedin.com/" target="_blank" class="contact__link">
+            <span class="contact__link-icon">in</span>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Built by Ritish Reddy Madireddy &nbsp;·&nbsp; <span id="year"></span></p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
