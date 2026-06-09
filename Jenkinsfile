@@ -19,6 +19,8 @@ pipeline {
       steps {
         withCredentials([sshUserPrivateKey(credentialsId: 'ec2-ssh-key', keyFileVariable: 'KEYFILE')]) {
           bat '''
+            icacls "%KEYFILE%" /inheritance:r
+            icacls "%KEYFILE%" /grant:r "%USERNAME%:R"
             ssh -i "%KEYFILE%" -o StrictHostKeyChecking=no %EC2_USER%@%EC2_HOST% "mkdir -p /tmp/site"
             scp -i "%KEYFILE%" -o StrictHostKeyChecking=no -r index.html css js %EC2_USER%@%EC2_HOST%:/tmp/site/
             ssh -i "%KEYFILE%" -o StrictHostKeyChecking=no %EC2_USER%@%EC2_HOST% "sudo rm -rf %WEB_ROOT%/* && sudo cp -r /tmp/site/* %WEB_ROOT%/ && sudo systemctl reload nginx"
